@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+/*declarando primera ruta*/
+var homeRouter = require ('./routes/home');
 var app = express();
 
 // view engine setup
@@ -21,10 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-/* primera ruta*/
-app.get ('/home', function (req,res){
-  res.send ('Este es el inicio de la pag')
-});
+
+/*primera ruta*/
+app.use ('/home', homeRouter);
+
 /* segunda ruta*/
 app.get ('/nosotros',function (req,res){
   res.send ('Esta es la seccion Nosotros')
