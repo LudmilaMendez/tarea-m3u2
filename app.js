@@ -24,17 +24,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-/*primera ruta*/
-app.use ('/home', homeRouter);
+app.use('/home', homeRouter);
 
-/* segunda ruta*/
-app.get ('/nosotros',function (req,res){
-  res.send ('Esta es la seccion Nosotros')
+/*segunda ruta*/
+
+app.get('/nosotros', function (req,res){
+  res.send('Esta es la seccion de Nosotros')
 });
-/* tercera ruta*/
-app.get ('/acerca-de', function(req,res){
-  res.send ('Esta es la seccion Acerca De')
+
+/*tercer ruta*/
+
+app.get('/acerca-de', function (req,res){
+  res.send('Esta es la seccion de Acerca De')
 });
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
